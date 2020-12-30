@@ -37,6 +37,7 @@ export class ChatPodrobnostiComponent implements OnInit {
             .subscribe(chats => this.chats = chats);
         
         this.chat = new Chat;
+        this.chat.apartmentId = this.route.snapshot.params.id;
     }
 
     submitForm(): void {
