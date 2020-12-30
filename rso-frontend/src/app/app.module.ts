@@ -18,6 +18,12 @@ import {ApartmentsUrediComponent} from './apartment/apartments-uredi.component';
 import {ApartmentPodrobnostiComponent} from './apartment/apartment-podrobnosti.component';
 import {ApartmentService} from './apartment/services/apartment.service';
 
+import {ImagesComponent} from './image/images.component';
+import {ImagesDodajComponent} from './image/images-dodaj.component';
+import {ImagesUrediComponent} from './image/images-uredi.component';
+import {ImagePodrobnostiComponent} from './image/image-podrobnosti.component';
+import {ImageService} from './image/services/image.service';
+
 
 @NgModule({
     imports: [
@@ -36,11 +42,17 @@ import {ApartmentService} from './apartment/services/apartment.service';
         ApartmentsComponent,
         ApartmentPodrobnostiComponent,
         ApartmentsDodajComponent,
-        ApartmentsUrediComponent
+        ApartmentsUrediComponent,
+
+        ImagesComponent,
+        ImagePodrobnostiComponent,
+        ImagesDodajComponent,
+        ImagesUrediComponent
     ],
     providers: [
         UserService,
-        ApartmentService
+        ApartmentService,
+        ImageService
     ],
     bootstrap: [AppComponent]
 })

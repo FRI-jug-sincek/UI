@@ -11,6 +11,11 @@ import {ApartmentPodrobnostiComponent} from './apartment/apartment-podrobnosti.c
 import {ApartmentsDodajComponent} from './apartment/apartments-dodaj.component';
 import {ApartmentsUrediComponent} from './apartment/apartments-uredi.component';
 
+import {ImagesComponent} from './image/images.component';
+import {ImagePodrobnostiComponent} from './image/image-podrobnosti.component';
+import {ImagesDodajComponent} from './image/images-dodaj.component';
+import {ImagesUrediComponent} from './image/images-uredi.component';
+
 
 const routes: Routes = [
     {path: '', redirectTo: '/uporabniki', pathMatch: 'full'},
@@ -22,7 +27,12 @@ const routes: Routes = [
     {path: 'stanovanja', component: ApartmentsComponent},
     {path: 'stanovanja/:id', component: ApartmentPodrobnostiComponent},
     {path: 'dodaj-stanovanje', component: ApartmentsDodajComponent},
-    {path: 'uredi-stanovanje/:id', component: ApartmentsUrediComponent}
+    {path: 'uredi-stanovanje/:id', component: ApartmentsUrediComponent},
+
+    {path: 'slike', component: ImagesComponent},
+    {path: 'slike/:id', component: ImagePodrobnostiComponent},
+    {path: 'dodaj-sliko', component: ImagesDodajComponent},
+    {path: 'uredi-sliko/:id', component: ImagesUrediComponent}
 ];
 
 @NgModule({

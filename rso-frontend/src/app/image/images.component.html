@@ -1,0 +1,13 @@
+<h2>Slike</h2>
+
+<ul class="images">
+    <li *ngFor="let image of images" (click)="naPodrobnosti(image)">
+        <img src="{{image.uri}}" width="50" height="50">
+        <span> {{image.entity}} - {{image.foreignKey}}</span>
+        <button class="delete"
+                (click)="delete(image); $event.stopPropagation()">x
+        </button>
+    </li>
+    <button (click)="dodaj()">Dodaj sliko</button>
+</ul>
+

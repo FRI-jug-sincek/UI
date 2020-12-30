@@ -1,0 +1,27 @@
+<div *ngIf="image">
+
+    <h3>Podrobnosti slike: {{image.name}}</h3>
+
+    <table>
+        <tr>
+            <td>Id:</td>
+            <td>{{image.imageId}}</td>
+        </tr>
+        <tr>
+            <td>Url:</td>
+            <td>{{image.url}}</td>
+        </tr>
+        <tr>
+            <td>Obrazi:</td>
+            <td>{{image.faces}}</td>
+        </tr>
+        <tr>
+            <td>Nsfw:</td>
+            <td>{{image.nsfw}}</td>
+        </tr>
+    </table>
+
+    <br>
+    <button (click)="nazaj()">Nazaj</button>
+    <button (click)="uredi()">Uredi</button>
+</div>
