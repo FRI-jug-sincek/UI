@@ -1,0 +1,12 @@
+<h2>Stanovanja</h2>
+
+<ul class="apartments">
+    <li *ngFor="let apartment of apartments" (click)="naPodrobnosti(apartment)">
+        <span>{{apartment.location}} - {{apartment.title}}</span>
+        <button class="delete"
+                (click)="delete(apartment); $event.stopPropagation()">x
+        </button>
+    </li>
+    <button (click)="dodaj()">Dodaj stanovanje</button>
+</ul>
+

@@ -1,0 +1,52 @@
+<h2>Dodaj stanovanje</h2>
+<div *ngIf="apartment">
+    <form (ngSubmit)="submitForm()" ngNativeValidate>
+        <table>
+            <tr>
+                <td><label for="title">Naziv</label></td>
+                <td><input [(ngModel)]="apartment.title" id="title" name="title" required/></td>
+            </tr>
+            <tr>
+                <td><label for="description">Opis</label></td>
+                <td><input [(ngModel)]="apartment.description" id="description" name="description" required/></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input [(ngModel)]="apartment.email" id="email" name="email" required email type="email"/></td>
+            </tr>
+            <tr>
+                <td><label for="capacity">Kapaciteta</label></td>
+                <td><input [(ngModel)]="apartment.capacity" id="capacity" name="capacity" 
+                            required type="number"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="lokacija">Lokacija stanovanja</label></td>
+                <td>
+                    <select matNativeControl required [(ngModel)]="apartment.location" id="location" name="location" >
+                    <option value="Ljubljana" selected>Ljubljana</option>
+                    <option value="Celje">Celje</option>
+                    <option value="Maribor">Maribor</option>
+                    <option value="Koper">Koper</option>
+                  </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="tenantId">Skrbnik</label></td>
+                <td>
+                    <input [(ngModel)]="apartment.tenantId" id="tenantId" name="tenantId" 
+                        required type="number"/>
+                </td>
+                  <!-- <select matNativeControl [(ngModel)]="apartment.tenantId" id="tenantId" name="tenantId" required>
+                    <option *ngFor="let user of users" [value]="user.userId">
+                      {{user.name}} {{user.surname}}
+                    </option>
+                  </select> -->
+            </tr>
+        </table>
+
+
+        <button type="button" (click)="nazaj()">Nazaj</button>
+        <button type="submit">Dodaj</button>
+    </form>
+</div>

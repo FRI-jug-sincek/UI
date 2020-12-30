@@ -12,6 +12,12 @@ import {UsersUrediComponent} from './user/users-uredi.component';
 import {UserPodrobnostiComponent} from './user/user-podrobnosti.component';
 import {UserService} from './user/services/user.service';
 
+import {ApartmentsComponent} from './apartment/apartments.component';
+import {ApartmentsDodajComponent} from './apartment/apartments-dodaj.component';
+import {ApartmentsUrediComponent} from './apartment/apartments-uredi.component';
+import {ApartmentPodrobnostiComponent} from './apartment/apartment-podrobnosti.component';
+import {ApartmentService} from './apartment/services/apartment.service';
+
 
 @NgModule({
     imports: [
@@ -25,9 +31,17 @@ import {UserService} from './user/services/user.service';
         UsersComponent,
         UserPodrobnostiComponent,
         UsersDodajComponent,
-        UsersUrediComponent
+        UsersUrediComponent,
+
+        ApartmentsComponent,
+        ApartmentPodrobnostiComponent,
+        ApartmentsDodajComponent,
+        ApartmentsUrediComponent
     ],
-    providers: [UserService],
+    providers: [
+        UserService,
+        ApartmentService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

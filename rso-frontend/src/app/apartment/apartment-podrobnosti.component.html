@@ -1,0 +1,35 @@
+<div *ngIf="apartment">
+
+    <h3>Podrobnosti stanovanja: {{apartment.title}}</h3>
+
+    <table>
+        <tr>
+            <td>Id:</td>
+            <td>{{apartment.id}}</td>
+        </tr>
+        <tr>
+            <td>Naslov:</td>
+            <td>{{apartment.title}}</td>
+        </tr>
+        <tr>
+            <td>Opis:</td>
+            <td>{{apartment.description}}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{apartment.email}}</td>
+        </tr>
+        <tr>
+            <td>Lokacija:</td>
+            <td>{{apartment.location}}</td>
+        </tr>
+        <tr>
+            <td>Kapaciteta:</td>
+            <td>{{apartment.capacity}}</td>
+        </tr>
+    </table>
+
+    <br>
+    <button (click)="nazaj()">Nazaj</button>
+    <button (click)="uredi()">Uredi</button>
+</div>
