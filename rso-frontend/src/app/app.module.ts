@@ -24,6 +24,9 @@ import {ImagesUrediComponent} from './image/images-uredi.component';
 import {ImagePodrobnostiComponent} from './image/image-podrobnosti.component';
 import {ImageService} from './image/services/image.service';
 
+import {ChatPodrobnostiComponent} from './chat/chat-podrobnosti.component';
+import { ChatService } from './chat/services/chat.service';
+
 
 @NgModule({
     imports: [
@@ -47,12 +50,15 @@ import {ImageService} from './image/services/image.service';
         ImagesComponent,
         ImagePodrobnostiComponent,
         ImagesDodajComponent,
-        ImagesUrediComponent
+        ImagesUrediComponent,
+
+        ChatPodrobnostiComponent
     ],
     providers: [
         UserService,
         ApartmentService,
-        ImageService
+        ImageService,
+        ChatService
     ],
     bootstrap: [AppComponent]
 })

@@ -16,6 +16,8 @@ import {ImagePodrobnostiComponent} from './image/image-podrobnosti.component';
 import {ImagesDodajComponent} from './image/images-dodaj.component';
 import {ImagesUrediComponent} from './image/images-uredi.component';
 
+import {ChatPodrobnostiComponent} from './chat/chat-podrobnosti.component';
+
 
 const routes: Routes = [
     {path: '', redirectTo: '/uporabniki', pathMatch: 'full'},
@@ -32,7 +34,10 @@ const routes: Routes = [
     {path: 'slike', component: ImagesComponent},
     {path: 'slike/:id', component: ImagePodrobnostiComponent},
     {path: 'dodaj-sliko', component: ImagesDodajComponent},
-    {path: 'uredi-sliko/:id', component: ImagesUrediComponent}
+    {path: 'uredi-sliko/:id', component: ImagesUrediComponent},
+
+    {path: 'chat/:id', component: ChatPodrobnostiComponent},
+
 ];
 
 @NgModule({
