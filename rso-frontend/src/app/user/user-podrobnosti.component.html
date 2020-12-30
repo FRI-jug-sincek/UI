@@ -1,0 +1,35 @@
+<div *ngIf="user">
+
+    <h3>Podrobnosti uporabnika: {{user.name}}</h3>
+
+    <table>
+        <tr>
+            <td>Id:</td>
+            <td>{{user.userId}}</td>
+        </tr>
+        <tr>
+            <td>Ime:</td>
+            <td>{{user.name}}</td>
+        </tr>
+        <tr>
+            <td>Priimek:</td>
+            <td>{{user.surname}}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{user.email}}</td>
+        </tr>
+        <tr>
+            <td>Lokacija:</td>
+            <td>{{user.location}}</td>
+        </tr>
+        <tr>
+            <td>Starost:</td>
+            <td>{{user.age}}</td>
+        </tr>
+    </table>
+
+    <br>
+    <button (click)="nazaj()">Nazaj</button>
+    <button (click)="uredi()">Uredi</button>
+</div>

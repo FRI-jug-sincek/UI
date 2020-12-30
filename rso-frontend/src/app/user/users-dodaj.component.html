@@ -1,0 +1,40 @@
+<h2>Dodaj uporabnika</h2>
+<div *ngIf="user">
+    <form (ngSubmit)="submitForm()" ngNativeValidate>
+        <table>
+            <tr>
+                <td><label for="name">Ime</label></td>
+                <td><input [(ngModel)]="user.name" id="name" name="name" required/></td>
+            </tr>
+            <tr>
+                <td><label for="priimek">Priimek</label></td>
+                <td><input [(ngModel)]="user.surname" id="priimek" name="priimek" required/></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input [(ngModel)]="user.email" id="email" name="email" required email type="email"/></td>
+            </tr>
+            <tr>
+                <td><label for="starost">Starost</label></td>
+                <td><input [(ngModel)]="user.age" id="starost" name="starost" 
+                            required type="number"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="lokacija">Lokacija iskanja</label></td>
+                <td>
+                    <select matNativeControl required [(ngModel)]="user.location" id="lokacija" name="lokacija" >
+                    <option value="Ljubljana" selected>Ljubljana</option>
+                    <option value="Celje">Celje</option>
+                    <option value="Maribor">Maribor</option>
+                    <option value="Koper">Koper</option>
+                  </select>
+                </td>
+            </tr>
+        </table>
+
+
+        <button type="button" (click)="nazaj()">Nazaj</button>
+        <button type="submit">Dodaj</button>
+    </form>
+</div>
