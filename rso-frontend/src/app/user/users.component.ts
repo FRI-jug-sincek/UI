@@ -29,7 +29,7 @@ export class UsersComponent implements OnInit {
 
     naPodrobnosti(user: User): void {
         this.user = user;
-        this.router.navigate(['/uporabniki', this.user.userId]);
+        this.router.navigate(['/users', this.user.userId]);
     }
 
     delete(user: User): void {
@@ -39,7 +39,7 @@ export class UsersComponent implements OnInit {
     }
 
     dodajUporabnika(): void {
-        this.router.navigate(['/dodaj-uporabnika']);
+        this.router.navigate(['/add-user']);
     }
 
 }

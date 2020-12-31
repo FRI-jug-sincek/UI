@@ -18,11 +18,11 @@ export class UsersDodajComponent {
 
     submitForm(): void {
         this.userService.create(this.user)
-        .subscribe(() => this.router.navigate(['/uporabniki']));
+        .subscribe(() => this.router.navigate(['/users']));
     }
 
     nazaj(): void {
-        this.router.navigate(['/uporabniki']);
+        this.router.navigate(['/users']);
     }
 
 }

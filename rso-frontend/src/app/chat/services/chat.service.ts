@@ -10,7 +10,9 @@ import { catchError } from 'rxjs/operators';
 export class ChatService {
 
     private headers = new HttpHeaders({'Content-Type': 'application/json'});
-    private url = 'http://localhost:8080/v1/chat';
+    // private url = 'http://localhost:8080/v1/chat';
+    private url = 'http://40.76.169.130/chat/v1/chat';
+
 
     constructor(private http: HttpClient) {
     }

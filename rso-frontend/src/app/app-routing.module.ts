@@ -25,11 +25,11 @@ import {UserAccountComponent} from './main/user-account.component';
 
 
 const routes: Routes = [
-    {path: '', redirectTo: '/uporabniki', pathMatch: 'full'},
-    {path: 'uporabniki', component: UsersComponent},
-    {path: 'uporabniki/:id', component: UserPodrobnostiComponent},
-    {path: 'dodaj-uporabnika', component: UsersDodajComponent},
-    {path: 'uredi-uporabnika/:id', component: UsersUrediComponent},
+    {path: '', redirectTo: '/users', pathMatch: 'full'},
+    {path: 'users', component: UsersComponent},
+    {path: 'users/:id', component: UserPodrobnostiComponent},
+    {path: 'add-user', component: UsersDodajComponent},
+    {path: 'edit-user/:id', component: UsersUrediComponent},
 
     {path: 'stanovanja', component: ApartmentsComponent},
     {path: 'stanovanja/:id', component: ApartmentPodrobnostiComponent},

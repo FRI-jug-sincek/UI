@@ -33,7 +33,7 @@ export class UserAccountComponent implements OnInit {
     }
 
     editUser(): void {
-        this.router.navigate(['/uredi-uporabnika/', this.user.userId]);
+        this.router.navigate(['/edit-user/', this.user.userId]);
     }
 
     pregledSlik(): void {
