@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 import {Image} from './models/image';
 import {ImageService} from './services/image.service';
@@ -13,16 +14,18 @@ export class ImagesDodajComponent {
     image: Image = new Image;
 
     constructor(private imageService: ImageService,
-                private router: Router) {
+                private router: Router,
+                private location: Location) {
     }
 
     submitForm(): void {
         this.imageService.create(this.image)
-        .subscribe(() => this.router.navigate(['/slike']));
+        .subscribe(() => this.location.back());
     }
 
     nazaj(): void {
-        this.router.navigate(['/slike']);
+        // this.router.navigate(['/slike']);
+        this.location.back();
     }
 
 }

@@ -32,6 +32,6 @@ export class UserPodrobnostiComponent implements OnInit {
         this.location.back();
     }
     uredi(): void {
-        this.router.navigate(['/urediuporabnika', this.user.userId]);
+        this.router.navigate(['/uredi-uporabnika', this.user.userId]);
     }
 }

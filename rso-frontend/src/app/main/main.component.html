@@ -1,0 +1,19 @@
+<div *ngIf="!user">
+    <span>Ta uporabnik ne obstaja!</span>
+</div>
+<div *ngIf="user">
+    <div>
+        <button (click)="account()" style="margin-left: 10px; margin-right: 20px">Account</button>
+        <button (click)="matches()">Matches</button>
+    </div>
+    <br>
+
+    <div>
+        <img src="https://www.burjkhalifa.ae/images/home-bg.jpg" width="250" height="250">
+        <span>Tu prikažema slike matchov in njihove podatke</span>
+    </div>
+    
+    <br>
+    <button (click)="no()" style="margin-left: 10px; margin-right: 20px">No</button>
+    <button (click)="yes()">Yes</button>
+</div>

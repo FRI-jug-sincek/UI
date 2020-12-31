@@ -1,0 +1,41 @@
+<div *ngIf="!user">
+    <span>Ta uporabnik ne obstaja!</span>
+</div>
+<div *ngIf="user">
+    <h3>Podrobnosti uporabnika: {{user.name}} {{user.surname}}</h3>
+
+    <table>
+        <tr>
+            <td>Id:</td>
+            <td>{{user.userId}}</td>
+        </tr>
+        <tr>
+            <td>Ime:</td>
+            <td>{{user.name}}</td>
+        </tr>
+        <tr>
+            <td>Priimek:</td>
+            <td>{{user.surname}}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{user.email}}</td>
+        </tr>
+        <tr>
+            <td>Lokacija:</td>
+            <td>{{user.location}}</td>
+        </tr>
+        <tr>
+            <td>Starost:</td>
+            <td>{{user.age}}</td>
+        </tr>
+    </table>
+
+    <br>
+    <div>
+        <button (click)="backHome()" style="margin-left: 10px; margin-right: 20px">Nazaj</button>
+        <button (click)="editUser()" style="margin-right: 20px">Uredi</button>
+        <button (click)="pregledSlik()">Pregled slik</button>
+    </div>
+    <br>
+</div>

@@ -39,7 +39,7 @@ export class UsersComponent implements OnInit {
     }
 
     dodajUporabnika(): void {
-        this.router.navigate(['/dodajuporabnika']);
+        this.router.navigate(['/dodaj-uporabnika']);
     }
 
 }

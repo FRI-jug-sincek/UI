@@ -20,6 +20,13 @@ export class ImageService {
                         .pipe(catchError(this.handleError));
     }
 
+    getImagesByEntityAndKey(entity : string, key: number): Observable<Image[]> {
+        const url = `${this.url}/filtered?order=id ASC&filter=entity:EQ:${entity} foreignKey:EQ:${key}`;
+
+        return this.http.get<Image[]>(url)
+                        .pipe(catchError(this.handleError));
+    }
+
     getImage(id: number): Observable<Image> {
         const url = `${this.url}/${id}`;
         return this.http.get<Image>(url)

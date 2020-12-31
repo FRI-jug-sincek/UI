@@ -19,6 +19,7 @@ import {ApartmentPodrobnostiComponent} from './apartment/apartment-podrobnosti.c
 import {ApartmentService} from './apartment/services/apartment.service';
 
 import {ImagesComponent} from './image/images.component';
+import {ImagesQueryComponent} from './image/images-query.component';
 import {ImagesDodajComponent} from './image/images-dodaj.component';
 import {ImagesUrediComponent} from './image/images-uredi.component';
 import {ImagePodrobnostiComponent} from './image/image-podrobnosti.component';
@@ -26,6 +27,9 @@ import {ImageService} from './image/services/image.service';
 
 import {ChatPodrobnostiComponent} from './chat/chat-podrobnosti.component';
 import { ChatService } from './chat/services/chat.service';
+
+import {MainComponent} from './main/main.component';
+import {UserAccountComponent} from './main/user-account.component';
 
 
 @NgModule({
@@ -52,7 +56,10 @@ import { ChatService } from './chat/services/chat.service';
         ImagesDodajComponent,
         ImagesUrediComponent,
 
-        ChatPodrobnostiComponent
+        ChatPodrobnostiComponent,
+        MainComponent,
+        UserAccountComponent,
+        ImagesQueryComponent
     ],
     providers: [
         UserService,

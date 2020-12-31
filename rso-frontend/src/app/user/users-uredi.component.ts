@@ -28,11 +28,13 @@ export class UsersUrediComponent {
     }
     submitForm(): void {
         this.userService.update(this.user)
-        .subscribe(() => this.router.navigate(['/uporabniki']));
+        .subscribe(() => this.location.back());
+        // this.router.navigate(['/uporabniki'])
     }
 
     nazaj(): void {
-        this.router.navigate(['/uporabniki']);
+        this.location.back();
+        // this.router.navigate(['/uporabniki']);
     }
 
 }

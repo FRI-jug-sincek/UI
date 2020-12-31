@@ -12,19 +12,24 @@ import {ApartmentsDodajComponent} from './apartment/apartments-dodaj.component';
 import {ApartmentsUrediComponent} from './apartment/apartments-uredi.component';
 
 import {ImagesComponent} from './image/images.component';
+import {ImagesQueryComponent} from './image/images-query.component';
 import {ImagePodrobnostiComponent} from './image/image-podrobnosti.component';
 import {ImagesDodajComponent} from './image/images-dodaj.component';
 import {ImagesUrediComponent} from './image/images-uredi.component';
 
 import {ChatPodrobnostiComponent} from './chat/chat-podrobnosti.component';
 
+import {MainComponent} from './main/main.component';
+import {UserAccountComponent} from './main/user-account.component';
+
+
 
 const routes: Routes = [
     {path: '', redirectTo: '/uporabniki', pathMatch: 'full'},
     {path: 'uporabniki', component: UsersComponent},
     {path: 'uporabniki/:id', component: UserPodrobnostiComponent},
-    {path: 'dodajuporabnika', component: UsersDodajComponent},
-    {path: 'urediuporabnika/:id', component: UsersUrediComponent},
+    {path: 'dodaj-uporabnika', component: UsersDodajComponent},
+    {path: 'uredi-uporabnika/:id', component: UsersUrediComponent},
 
     {path: 'stanovanja', component: ApartmentsComponent},
     {path: 'stanovanja/:id', component: ApartmentPodrobnostiComponent},
@@ -35,8 +40,12 @@ const routes: Routes = [
     {path: 'slike/:id', component: ImagePodrobnostiComponent},
     {path: 'dodaj-sliko', component: ImagesDodajComponent},
     {path: 'uredi-sliko/:id', component: ImagesUrediComponent},
+    {path: 'pregled-slik/:entity/:key', component: ImagesQueryComponent},
 
     {path: 'chat/:id', component: ChatPodrobnostiComponent},
+
+    {path: 'home/:id', component: MainComponent},
+    {path: 'account/:id', component: UserAccountComponent},
 
 ];
 

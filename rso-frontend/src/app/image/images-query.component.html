@@ -1,0 +1,34 @@
+<h2>Slike</h2>
+
+<ul class="images">
+    <div>
+        <li *ngFor="let image of images" (click)="naPodrobnosti(image)">
+            <img src="{{image.uri}}" width="100" height="100">
+            <button class="delete"
+                    (click)="delete(image); $event.stopPropagation()">x
+            </button>
+        </li>
+    </div>
+    
+    <form (ngSubmit)="submitForm()" ngNativeValidate>
+        <table>
+            <tr hidden>
+                <td><label for="entity">Entiteta:</label></td>
+                <td><input [(ngModel)]="image.entity" id="entity" name="entity" required/></td>
+            </tr>
+            <tr hidden>
+                <td><label for="foreignKey">ForeignKey:</label></td>
+                <td><input [(ngModel)]="image.foreignKey" id="foreignKey" name="foreignKey" required type="number"/></td>
+            </tr>
+            <tr>
+                <td><label for="uri">Url</label></td>
+                <td><input [(ngModel)]="image.uri" id="uri" name="uri" required size="100"/></td>
+            </tr>
+        </table>
+
+
+        <button type="button" (click)="nazaj()">Nazaj</button>
+        <button type="submit">Dodaj</button>
+    </form>
+</ul>
+

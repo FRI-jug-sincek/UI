@@ -28,11 +28,12 @@ export class ImagesUrediComponent {
     }
     submitForm(): void {
         this.imageService.update(this.image)
-        .subscribe(() => this.router.navigate(['/slike']));
+        .subscribe(() => this.location.back());
     }
 
     nazaj(): void {
-        this.router.navigate(['/slike']);
+        // this.router.navigate(['/slike']);
+        this.location.back();
     }
 
 }
