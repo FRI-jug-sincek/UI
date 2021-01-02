@@ -30,13 +30,13 @@ export class ImagesQueryComponent implements OnInit {
 
     getImages(): void {
         this.imageService
-            .getImagesByEntityAndKey('user', 8)
+            .getImagesByEntityAndKey(this.route.snapshot.params.entity, this.route.snapshot.params.key)
             .subscribe(images => this.images = images);
     }
 
     naPodrobnosti(image: Image): void {
         this.image = image;
-        this.router.navigate(['/slike', this.image.imageId]);
+        this.router.navigate(['/images', this.image.imageId]);
     }
 
     delete(image: Image): void {
@@ -53,7 +53,7 @@ export class ImagesQueryComponent implements OnInit {
     }
 
     nazaj(): void {
-        // this.router.navigate(['/slike']);
+        // this.router.navigate(['/images']);
         this.location.back();
     }
 

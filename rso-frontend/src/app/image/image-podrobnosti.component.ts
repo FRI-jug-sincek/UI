@@ -32,6 +32,6 @@ export class ImagePodrobnostiComponent implements OnInit {
         this.location.back();
     }
     uredi(): void {
-        this.router.navigate(['/uredi-sliko', this.image.imageId]);
+        this.router.navigate(['/edit-image', this.image.imageId]);
     }
 }

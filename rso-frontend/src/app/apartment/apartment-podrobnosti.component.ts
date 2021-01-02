@@ -32,6 +32,6 @@ export class ApartmentPodrobnostiComponent implements OnInit {
         this.location.back();
     }
     uredi(): void {
-        this.router.navigate(['/uredi-stanovanje', this.apartment.id]);
+        this.router.navigate(['/edit-apartment', this.apartment.id]);
     }
 }

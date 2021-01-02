@@ -37,10 +37,10 @@ export class UserAccountComponent implements OnInit {
     }
 
     pregledSlik(): void {
-        this.router.navigate(['/pregled-slik/user/', this.user.userId]);
+        this.router.navigate(['/images-overview/user/', this.user.userId]);
     }
 
     backHome(): void {
-        this.router.navigate(['/home/', this.user.userId]);
+        this.router.navigate(['/home/user/', this.user.userId]);
     }
 }

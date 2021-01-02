@@ -29,7 +29,7 @@ export class ApartmentsComponent implements OnInit {
 
     naPodrobnosti(apartment: Apartment): void {
         this.apartment = apartment;
-        this.router.navigate(['/stanovanja', this.apartment.id]);
+        this.router.navigate(['/apartments', this.apartment.id]);
     }
 
     delete(apartment: Apartment): void {
@@ -39,7 +39,7 @@ export class ApartmentsComponent implements OnInit {
     }
 
     dodaj(): void {
-        this.router.navigate(['/dodaj-stanovanje']);
+        this.router.navigate(['/add-apartment']);
     }
 
 }

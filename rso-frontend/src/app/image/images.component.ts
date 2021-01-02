@@ -29,7 +29,7 @@ export class ImagesComponent implements OnInit {
 
     naPodrobnosti(image: Image): void {
         this.image = image;
-        this.router.navigate(['/slike', this.image.imageId]);
+        this.router.navigate(['/images', this.image.imageId]);
     }
 
     delete(image: Image): void {
@@ -39,7 +39,7 @@ export class ImagesComponent implements OnInit {
     }
 
     dodaj(): void {
-        this.router.navigate(['/dodaj-sliko']);
+        this.router.navigate(['/add-image']);
     }
 
 }

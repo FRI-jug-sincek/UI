@@ -37,11 +37,12 @@ export class ApartmentsUrediComponent {
     }
     submitForm(): void {
         this.apartmentService.update(this.apartment)
-        .subscribe(() => this.router.navigate(['/stanovanja']));
+        .subscribe(() => this.location.back());
     }
 
     nazaj(): void {
-        this.router.navigate(['/stanovanja']);
+        this.location.back();
+        // this.router.navigate(['/apartments']);
     }
 
 }

@@ -1,0 +1,41 @@
+<div *ngIf="!apartment">
+    <span>To stanovanje ne obstaja!</span>
+</div>
+<div *ngIf="apartment">
+    <h3>Podrobnosti stanovanja: {{apartment.title}}</h3>
+
+    <table>
+        <tr>
+            <td>Id:</td>
+            <td>{{apartment.id}}</td>
+        </tr>
+        <tr>
+            <td>Naslov:</td>
+            <td>{{apartment.title}}</td>
+        </tr>
+        <tr>
+            <td>Opis:</td>
+            <td>{{apartment.description}}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{apartment.email}}</td>
+        </tr>
+        <tr>
+            <td>Lokacija:</td>
+            <td>{{apartment.location}}</td>
+        </tr>
+        <tr>
+            <td>Kapaciteta:</td>
+            <td>{{apartment.capacity}}</td>
+        </tr>
+    </table>
+
+    <br>
+    <div>
+        <button (click)="backHome()" style="margin-left: 10px; margin-right: 20px">Nazaj</button>
+        <button (click)="editApartment()" style="margin-right: 20px">Uredi</button>
+        <button (click)="pregledSlik()">Pregled slik</button>
+    </div>
+    <br>
+</div>

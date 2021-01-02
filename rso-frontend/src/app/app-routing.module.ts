@@ -21,7 +21,7 @@ import {ChatPodrobnostiComponent} from './chat/chat-podrobnosti.component';
 
 import {MainComponent} from './main/main.component';
 import {UserAccountComponent} from './main/user-account.component';
-
+import {ApartmentAccountComponent} from './main/apartment-account.component';
 
 
 const routes: Routes = [
@@ -31,21 +31,22 @@ const routes: Routes = [
     {path: 'add-user', component: UsersDodajComponent},
     {path: 'edit-user/:id', component: UsersUrediComponent},
 
-    {path: 'stanovanja', component: ApartmentsComponent},
-    {path: 'stanovanja/:id', component: ApartmentPodrobnostiComponent},
-    {path: 'dodaj-stanovanje', component: ApartmentsDodajComponent},
-    {path: 'uredi-stanovanje/:id', component: ApartmentsUrediComponent},
+    {path: 'apartments', component: ApartmentsComponent},
+    {path: 'apartments/:id', component: ApartmentPodrobnostiComponent},
+    {path: 'add-apartment', component: ApartmentsDodajComponent},
+    {path: 'edit-apartment/:id', component: ApartmentsUrediComponent},
 
-    {path: 'slike', component: ImagesComponent},
-    {path: 'slike/:id', component: ImagePodrobnostiComponent},
-    {path: 'dodaj-sliko', component: ImagesDodajComponent},
-    {path: 'uredi-sliko/:id', component: ImagesUrediComponent},
-    {path: 'pregled-slik/:entity/:key', component: ImagesQueryComponent},
+    {path: 'images', component: ImagesComponent},
+    {path: 'images/:id', component: ImagePodrobnostiComponent},
+    {path: 'add-image', component: ImagesDodajComponent},
+    {path: 'edit-image/:id', component: ImagesUrediComponent},
+    {path: 'images-overview/:entity/:key', component: ImagesQueryComponent},
 
     {path: 'chat/:id', component: ChatPodrobnostiComponent},
 
-    {path: 'home/:id', component: MainComponent},
-    {path: 'account/:id', component: UserAccountComponent},
+    {path: 'home/:entity/:id', component: MainComponent},
+    {path: 'user-account/:id', component: UserAccountComponent},
+    {path: 'apartment-account/:id', component: ApartmentAccountComponent},
 
 ];
 

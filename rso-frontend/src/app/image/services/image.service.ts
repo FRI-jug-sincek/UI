@@ -11,7 +11,7 @@ export class ImageService {
 
     private headers = new HttpHeaders({'Content-Type': 'application/json'});
     // private url = 'http://localhost:8080/v1/images';
-    private url = 'http://40.76.169.130/image/v1/image';
+    private url = 'http://40.76.169.130/images/v1/images';
 
 
     constructor(private http: HttpClient) {

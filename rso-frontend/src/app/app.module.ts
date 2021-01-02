@@ -30,6 +30,8 @@ import { ChatService } from './chat/services/chat.service';
 
 import {MainComponent} from './main/main.component';
 import {UserAccountComponent} from './main/user-account.component';
+import {ApartmentAccountComponent} from './main/apartment-account.component';
+
 
 
 @NgModule({
@@ -59,6 +61,7 @@ import {UserAccountComponent} from './main/user-account.component';
         ChatPodrobnostiComponent,
         MainComponent,
         UserAccountComponent,
+        ApartmentAccountComponent,
         ImagesQueryComponent
     ],
     providers: [

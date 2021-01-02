@@ -24,7 +24,7 @@ export class ImagesDodajComponent {
     }
 
     nazaj(): void {
-        // this.router.navigate(['/slike']);
+        // this.router.navigate(['/images']);
         this.location.back();
     }
 

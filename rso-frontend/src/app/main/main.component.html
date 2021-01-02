@@ -1,7 +1,7 @@
-<div *ngIf="!user">
+<div *ngIf="!user && !apartment">
     <span>Ta uporabnik ne obstaja!</span>
 </div>
-<div *ngIf="user">
+<div *ngIf="user || apartment">
     <div>
         <button (click)="account()" style="margin-left: 10px; margin-right: 20px">Account</button>
         <button (click)="matches()">Matches</button>
