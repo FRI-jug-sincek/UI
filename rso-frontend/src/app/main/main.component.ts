@@ -155,7 +155,6 @@ export class MainComponent implements OnInit {
         this.i = this.i===0 ? 0 : this.i - 1;
     }
     getNext() {
-        debugger
         if (this.isUser) {
             this.i = this.i===(this.apartments.length-1) ? this.i: this.i + 1;
         } else {

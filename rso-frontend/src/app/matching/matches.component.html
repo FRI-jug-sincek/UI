@@ -4,10 +4,10 @@
     <ul class="matches">
         <li *ngFor="let match of matches">
             <button class="chat"
-                (click)="toChat(match); $event.stopPropagation()">Pogovor
+                (click)="toChat(match); $event.stopPropagation()" style="margin-right: 10px">Pogovor
             </button>
-            <span *ngIf="isUser">{{match.apartmentId}}</span>
-            <span *ngIf="!isUser">{{match.userId}}</span>
+            <span *ngIf="isUser">ApartmentId: {{match.apartmentId}}</span>
+            <span *ngIf="!isUser">UserId: {{match.userId}}</span>
             <button class="delete"
                 (click)="unmatch(match); $event.stopPropagation()">X
             </button>
@@ -17,5 +17,5 @@
 
 <br>
 <div>
-    <button (click)="nazaj()">Nazaj</button>
+    <button (click)="nazaj()" style="margin-left: 10px">Nazaj</button>
 </div>
