@@ -32,6 +32,9 @@ import {MainComponent} from './main/main.component';
 import {UserAccountComponent} from './main/user-account.component';
 import {ApartmentAccountComponent} from './main/apartment-account.component';
 
+import {MatchesComponent} from './matching/matches.component';
+import {MatchService} from './matching/services/match.service';
+
 
 
 @NgModule({
@@ -62,13 +65,16 @@ import {ApartmentAccountComponent} from './main/apartment-account.component';
         MainComponent,
         UserAccountComponent,
         ApartmentAccountComponent,
-        ImagesQueryComponent
+        ImagesQueryComponent,
+
+        MatchesComponent,
     ],
     providers: [
         UserService,
         ApartmentService,
         ImageService,
-        ChatService
+        ChatService,
+        MatchService
     ],
     bootstrap: [AppComponent]
 })

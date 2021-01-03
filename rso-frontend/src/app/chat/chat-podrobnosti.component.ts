@@ -25,6 +25,7 @@ export class ChatPodrobnostiComponent implements OnInit {
 
     ngOnInit(): void {
         this.chat.apartmentId = this.route.snapshot.params.id;
+        this.chat.userId = this.route.snapshot.params.userId;
 
         this.route.params.pipe(
             switchMap((params: Params) => this.chatService.getChatByApartment(+params['id'])))
@@ -38,10 +39,16 @@ export class ChatPodrobnostiComponent implements OnInit {
         
         this.chat = new Chat;
         this.chat.apartmentId = this.route.snapshot.params.id;
+        this.chat.userId = this.route.snapshot.params.userId;
+
     }
 
     submitForm(): void {
         this.chatService.create(this.chat)
         .subscribe(() => this.refreshMessages());
+    }
+
+    nazaj(): void {
+        this.location.back();
     }
 }

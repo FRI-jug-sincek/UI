@@ -8,12 +8,59 @@
     </div>
     <br>
 
-    <div>
-        <img src="https://www.burjkhalifa.ae/images/home-bg.jpg" width="250" height="250">
-        <span>Tu prikažema slike matchov in njihove podatke</span>
+    <div *ngIf="users?.length == 0 && apartments?.length == 0">
+        <span>Iskanje priporočil...</span>
+    </div>
+    <div *ngIf="apartments?.length > 0">
+        <h3>Stanovanja:</h3>
+        <div *ngIf="apartments?.length > 0" id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <img src="{{ getSlide() }}" alt="slide" width="250" height="250">
+                <ul>
+                    <li>
+                        <span>Naziv: {{ getDetails().title}}</span>
+                    </li>
+                    <li>
+                        <span>Kapaciteta: {{ getDetails().capacity }}</span>
+                    </li>
+                    <li>
+                        <span>Lokacija:{{ getDetails().location }}</span>
+                    </li>
+                    <li>
+                        <span>Opis: {{ getDetails().description }}</span>
+                    </li>
+                </ul>
+            </div>
+            <button (click)='getPrev()' style="margin-left: 10px; margin-right: 20px">Prev</button>
+            <button (click)='getNext()' style="margin-right: 20px">Next</button>
+            <button (click)="yes()" style="margin-right: 20px">Like!</button>
+          </div>
     </div>
     
-    <br>
-    <button (click)="no()" style="margin-left: 10px; margin-right: 20px">No</button>
-    <button (click)="yes()">Yes</button>
+    <div *ngIf="users?.length > 0">
+    
+        <h3>Uporabniki:</h3>
+        <div *ngIf="users?.length > 0" id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <img src="{{ getSlide() }}" alt="slide" width="250" height="250">
+                <ul>
+                    <li>
+                        <span>Ime: {{ getDetails().name}} {{getDetails().surname}}</span>
+                    </li>
+                    <li>
+                        <span>Starost: {{ getDetails().age }}</span>
+                    </li>
+                    <li>
+                        <span>Lokacija:{{ getDetails().location }}</span>
+                    </li>
+                </ul>
+            </div>
+            <button (click)='getPrev()' style="margin-left: 10px; margin-right: 20px">Prev</button>
+            <button (click)='getNext()' style="margin-right: 20px">Next</button>
+            <button (click)="yes()" style="margin-right: 20px">Like!</button>
+          </div>
+    </div>
+    
+    
+    
 </div>

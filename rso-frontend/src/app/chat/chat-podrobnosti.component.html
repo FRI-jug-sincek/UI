@@ -3,7 +3,7 @@
     <h3>Pogovor:</h3>
     <ul class="chats">
         <li *ngFor="let chat of chats">
-            <span>{{chat.userId}} - {{chat.message}}</span>
+            <span>{{chat.userId}} : {{chat.message}}</span>
         </li>
     </ul>
 </div>
@@ -17,18 +17,19 @@
                 <td><label for="apartmentId">ApartmentId:</label></td>
                 <td><input [(ngModel)]="chat.apartmentId" id="apartmentId" name="apartmentId" type="number"/></td>
             </tr>
-            <tr>
+            <tr hidden>
                 <td><label for="userId">UserId:</label></td>
                 <td><input [(ngModel)]="chat.userId" id="userId" name="userId" required type="number"/></td>
             </tr>
             <br>
             <tr>
-                <td><label for="message">Message:</label></td>
+                <td><label for="message">Sporočilo:</label></td>
                 <td><input [(ngModel)]="chat.message" id="message" name="message" required size="64" style="height:50px"/></td>
             </tr>
         </table>
 
         <br>
+        <button (click)="nazaj()">Nazaj</button>
         <button type="submit">Pošlji</button>
     </form>
 </div>

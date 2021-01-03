@@ -1,0 +1,21 @@
+<h3>Ujemanja:</h3>
+
+<div *ngIf="matches">
+    <ul class="matches">
+        <li *ngFor="let match of matches">
+            <button class="chat"
+                (click)="toChat(match); $event.stopPropagation()">Pogovor
+            </button>
+            <span *ngIf="isUser">{{match.apartmentId}}</span>
+            <span *ngIf="!isUser">{{match.userId}}</span>
+            <button class="delete"
+                (click)="unmatch(match); $event.stopPropagation()">X
+            </button>
+        </li>
+    </ul>
+</div>
+
+<br>
+<div>
+    <button (click)="nazaj()">Nazaj</button>
+</div>

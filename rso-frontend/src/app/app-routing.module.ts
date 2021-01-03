@@ -23,6 +23,9 @@ import {MainComponent} from './main/main.component';
 import {UserAccountComponent} from './main/user-account.component';
 import {ApartmentAccountComponent} from './main/apartment-account.component';
 
+import {MatchesComponent} from './matching/matches.component';
+
+
 
 const routes: Routes = [
     {path: '', redirectTo: '/users', pathMatch: 'full'},
@@ -42,12 +45,13 @@ const routes: Routes = [
     {path: 'edit-image/:id', component: ImagesUrediComponent},
     {path: 'images-overview/:entity/:key', component: ImagesQueryComponent},
 
-    {path: 'chat/:id', component: ChatPodrobnostiComponent},
+    {path: 'chat/:id/:userId', component: ChatPodrobnostiComponent},
 
     {path: 'home/:entity/:id', component: MainComponent},
     {path: 'user-account/:id', component: UserAccountComponent},
     {path: 'apartment-account/:id', component: ApartmentAccountComponent},
 
+    {path: 'matches/:entity/:id', component: MatchesComponent},
 ];
 
 @NgModule({

@@ -1,0 +1,7 @@
+http://localhost:4200/home/apartment/1
+http://localhost:4200/home/user/1
+
+http://localhost:4200/users
+http://localhost:4200/apartments
+http://localhost:4200/chat/1/1    #apartmentId, userId
+http://localhost:4200/images

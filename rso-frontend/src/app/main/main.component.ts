@@ -10,9 +10,10 @@ import {ImageService} from '../image/services/image.service';
 
 import {User} from '../user/models/user';
 import {UserService} from '../user/services/user.service';
-
 import {Apartment} from '../apartment/models/apartment';
 import {ApartmentService} from '../apartment/services/apartment.service';
+import {MatchService} from '../matching/services/match.service';
+
 
 @Component({
     moduleId: module.id,
@@ -23,9 +24,17 @@ export class MainComponent implements OnInit {
     user: User;
     apartment: Apartment;
     isUser: boolean;
+    
+    users: User[] = [];
+    apartments: Apartment[] = [];
+    apartmentRecIds: number[];
+    userRecIds: number[];
+    apartmentImages: string[] = [];
+    userImages: string[] = [];
 
     constructor(private imageService: ImageService,
                 private userService: UserService,
+                private matchService: MatchService,
                 private apartmentService: ApartmentService,
                 private route: ActivatedRoute,
                 private location: Location,
@@ -33,18 +42,83 @@ export class MainComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        if (this.route.snapshot.params.entity == "user") {
+        if (this.route.snapshot.params.entity == 'user') {
+            this.isUser = true;
             this.route.params.pipe(
                 switchMap((params: Params) => this.userService.getUser(+params['id'])))
-                .subscribe(user => this.user = user);
-            this.isUser = true;
-        } else if (this.route.snapshot.params.entity == "apartment") {
+                .subscribe(user => {
+                    this.user = user; 
+                    this.getApartmentRecomendations(user);
+                });
+        } else if (this.route.snapshot.params.entity == 'apartment') {
+            this.isUser = false;
             this.route.params.pipe(
                 switchMap((params: Params) => this.apartmentService.getApartment(+params['id'])))
-                .subscribe(ap => this.apartment = ap);
-            this.isUser = false;
-        }
-        
+                .subscribe(ap => {
+                    this.apartment = ap;
+                    this.getUserRecomendations(ap);
+                });
+        }     
+    }
+
+    getApartmentRecomendations(user: User) {
+        this.route.params.pipe(
+            switchMap((params: Params) => this.matchService.getApartmentRecomendations(user)))
+            .subscribe(ids => {
+                this.apartmentRecIds = ids;
+                this.setApartmentDetails(ids);
+                this.setApartmentImages(ids);
+            });
+    }
+
+    setApartmentImages(ids : number[]) {
+        ids.forEach(id => {
+            this.imageService.getImagesByEntityAndKey("apartment", id).subscribe(im => {
+                if (im.length > 0) {
+                    this.apartmentImages.push(im[0].uri);
+                } else {
+                    this.apartmentImages.push("https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png");
+                }
+            })
+        });
+    }
+
+    setApartmentDetails(ids : number[]) {
+        ids.forEach(id => {
+            this.apartmentService.getApartment(id).subscribe(ap => {
+                this.apartments.push(ap);
+            })
+        });
+    }
+
+    getUserRecomendations(apartment: Apartment) {
+        this.route.params.pipe(
+            switchMap((params: Params) => this.matchService.getUserRecomendations(apartment)))
+            .subscribe(ids => {
+                this.userRecIds = ids;
+                this.setUserDetails(ids);
+                this.setUserImages(ids);
+            });
+    }
+
+    setUserImages(ids : number[]) {
+        ids.forEach(id => {
+            this.imageService.getImagesByEntityAndKey("user", id).subscribe(im => {
+                if (im.length > 0) {
+                    this.userImages.push(im[0].uri);
+                } else {
+                    this.userImages.push("https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png");
+                }
+            })
+        });
+    }
+
+    setUserDetails(ids : number[]) {
+        ids.forEach(id => {
+            this.userService.getUser(id).subscribe(user => {
+                this.users.push(user);
+            })
+        });
     }
 
     account(): void {
@@ -56,9 +130,46 @@ export class MainComponent implements OnInit {
     }
     matches(): void {
         if (this.isUser){
-            this.router.navigate(['/matches', this.user.userId]);
+            this.router.navigate(['/matches/user', this.user.userId]);
         } else {
-            this.router.navigate(['/matches', this.apartment.id]);
+            this.router.navigate(['/matches/apartment', this.apartment.id]);
+        }
+    }
+
+    i=0;
+    getSlide() {
+        if (this.isUser) {
+            return this.apartmentImages[this.i];
+        } else {
+            return this.userImages[this.i];
+        }
+    }
+    getDetails() {
+        if (this.isUser) {
+            return this.apartments[this.i];
+        } else {
+            return this.users[this.i];
+        }
+    }
+    getPrev() {
+        this.i = this.i===0 ? 0 : this.i - 1;
+    }
+    getNext() {
+        debugger
+        if (this.isUser) {
+            this.i = this.i===(this.apartments.length-1) ? this.i: this.i + 1;
+        } else {
+            this.i = this.i===(this.users.length-1) ? this.i : this.i + 1;
+        }
+    }
+
+    yes() {
+        if(this.isUser){
+            this.matchService.matchApartment(this.user, this.apartments[this.i])
+            .subscribe(() =>  this.getNext());
+        } else {
+            this.matchService.matchUser(this.users[this.i], this.apartment)
+            .subscribe(() =>  this.getNext());
         }
     }
 }
