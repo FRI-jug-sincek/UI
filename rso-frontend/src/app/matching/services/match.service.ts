@@ -41,9 +41,9 @@ export class MatchService {
     getMatches(entity: string, id: number): Observable<Match[]> {
         var url = this.url;
         if (entity == 'user') {
-            var url = `${this.url}/filtered?filter=userId:EQ:${id}`;
+            var url = `${this.url}/filtered?filter=userId:EQ:${id} mutual:EQ:YES`;
         } else if (entity == 'apartment') {
-            var url = `${this.url}/filtered?filter=apartmentId:EQ:${id}`;
+            var url = `${this.url}/filtered?filter=apartmentId:EQ:${id} mutual:EQ:YES`;
         }
         return this.http.get<Match[]>(url)
                         .pipe(catchError(this.handleError));
@@ -54,7 +54,7 @@ export class MatchService {
         tmp.apartmentId = apartment.id;
         tmp.userId = user.userId;
         tmp.location = apartment.location;
-        tmp.initiator = "app";
+        tmp.initiator = "APT";
         tmp.mutual = "TBD"; 
         return this.http.post<Match>(this.url+'/match', JSON.stringify(tmp), {headers: this.headers})
                         .pipe(catchError(this.handleError));
@@ -65,7 +65,7 @@ export class MatchService {
         tmp.apartmentId = apartment.id;
         tmp.userId = user.userId;
         tmp.location = apartment.location;
-        tmp.initiator = "usr";
+        tmp.initiator = "USR";
         tmp.mutual = "TBD"; 
         return this.http.post<Match>(this.url+'/match', JSON.stringify(tmp), {headers: this.headers})
                         .pipe(catchError(this.handleError));

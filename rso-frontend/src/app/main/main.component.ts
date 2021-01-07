@@ -14,6 +14,10 @@ import {Apartment} from '../apartment/models/apartment';
 import {ApartmentService} from '../apartment/services/apartment.service';
 import {MatchService} from '../matching/services/match.service';
 
+interface customType {
+    id: number,
+    url: string
+}
 
 @Component({
     moduleId: module.id,
@@ -29,8 +33,8 @@ export class MainComponent implements OnInit {
     apartments: Apartment[] = [];
     apartmentRecIds: number[];
     userRecIds: number[];
-    apartmentImages: string[] = [];
-    userImages: string[] = [];
+    apartmentImages: customType[] = [];
+    userImages: customType[] = [];
 
     constructor(private imageService: ImageService,
                 private userService: UserService,
@@ -75,9 +79,15 @@ export class MainComponent implements OnInit {
         ids.forEach(id => {
             this.imageService.getImagesByEntityAndKey("apartment", id).subscribe(im => {
                 if (im.length > 0) {
-                    this.apartmentImages.push(im[0].uri);
+                    this.apartmentImages.push({
+                        id: id,
+                        url: im[0].uri
+                    });
                 } else {
-                    this.apartmentImages.push("https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png");
+                    this.apartmentImages.push({
+                        id: id,
+                        url: "https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png"
+                    });
                 }
             })
         });
@@ -105,9 +115,15 @@ export class MainComponent implements OnInit {
         ids.forEach(id => {
             this.imageService.getImagesByEntityAndKey("user", id).subscribe(im => {
                 if (im.length > 0) {
-                    this.userImages.push(im[0].uri);
+                    this.userImages.push({
+                        id: id,
+                        url: im[0].uri
+                    });
                 } else {
-                    this.userImages.push("https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png");
+                    this.userImages.push({
+                        id: id,
+                        url: "https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png"
+                    });
                 }
             })
         });
@@ -139,9 +155,13 @@ export class MainComponent implements OnInit {
     i=0;
     getSlide() {
         if (this.isUser) {
-            return this.apartmentImages[this.i];
+            var id = this.apartments[this.i].id;
+            var apt = this.apartmentImages.find(f => f.id == id);
+            return apt ? apt.url : "";
         } else {
-            return this.userImages[this.i];
+            var id = this.users[this.i].userId;
+            var user = this.userImages.find(f => f.id == id);
+            return user ? user.url : "";
         }
     }
     getDetails() {
